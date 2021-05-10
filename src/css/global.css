@@ -4,6 +4,7 @@
     --light-grey: rgb(245, 245, 245);
     --lighter-grey: rgb(236, 236, 236);
     --blue: rgb(35, 146, 250);
+    --lighter-blue: #13538A;
     --dark-blue: rgb(27, 125, 216);
 }
 
@@ -13,8 +14,7 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
-    font-family: sans-serif;
-    color: var(--black);
+    font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -30,7 +30,7 @@ html, body {
 }
 
 #mainContainer > #sideNav {
-    background-color: var(--white);
+    background-color: var(--lighter-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,10 +44,12 @@ html, body {
 }
 
 #mainContainer > #sideNav > #navTitle > h1{
-    padding: 20px 0 40px 0;
+    margin-top: 1.2rem;
+    color: var(--white);
 }
 
 #mainContainer > #sideNav > #inputContainer{
+    color: var(--white);
     display: flex;
     width: 70%;
     flex-direction: column;
@@ -77,6 +79,8 @@ html, body {
     color: var(--white);
     border-radius: 5px;
     font-size: 1.1rem;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4); 
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4);
 }
 
 #mainContainer > #sideNav > #inputContainer > .inputButton > input:hover {
@@ -112,87 +116,68 @@ html, body {
     border: none;
     background-color: var(--lighter-grey);
     width: 100%;
-    height: 40px; 
+    height: 40px;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #mainContainer > #dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 #mainContainer > #dashboard > #dashboardTitle {
+    margin-top: 1.2rem;
     display: flex;
     width: 90%;
-}
-
-#mainContainer > #dashboard > #dashboardTitle > h1 {
-    margin: 20px 0 0 0;
 }
 
 #mainContainer > #dashboard > #dashboardInfo {
-    display: flex;
+    margin-top: 1.5rem;
+    display: grid;
     width: 90%;
-    flex: 1 1 auto;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionOne {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionTwo {
-    display: flex;
-    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
 }
 
 .graphContainer {
     background-color: var(--white);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionOne > .graphContainer {
+#mainContainer > #dashboard > #dashboardInfo > .graphContainer {
     width: 250;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionTwo > .graphContainer {
-    width: 100%;
+    justify-content: space-evenly;
 }
 
 .graphArea > img {
     width: 150px;
 }
 
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionOne > .graphContainer > .graphArea {
-    margin: 30px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.graphArea > .ct-chart.ct-perfect-fourth {
+    width: 150px;
 }
 
-#mainContainer > #dashboard > #dashboardInfo > #dashboardSectionTwo > .graphContainer > .graphArea {
-    margin: 30px 0 0 0;
+#mainContainer > #dashboard > #dashboardInfo > .graphContainer > .graphArea {
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 
 .graphContainer > .textArea {
-    border-top: 1px solid rgb(150, 150, 150);
     background:var(--lighter-grey);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    margin: 40px 0 0 0;
     padding: 5px;
 }
 
@@ -204,5 +189,7 @@ html, body {
 .graphContainer > .textArea > p{
     font-size: 1.rem;
 }
+
+
 
 

@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="./src/libraries/chartist-js/chartist.css">
 
     <script type="module" src="./src/js/localStorage.js"></script>
-    <!-- <link rel="stylesheet" href="./src/css/global.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>EMPRESA - Dashboard</title>
 </head>
 
@@ -24,28 +27,21 @@
                 <div class="inputText">
                     <label for="faturamento">
                         <p>Faturamento</p>
-                        <img src="./src/images/questionMarkIcon.png" alt="" class="questionMarkIcon">
+                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
                     </label>
                     <input type="number" name="faturamento" id="faturamento" value="100">
                 </div>
                 <div class="inputText">
                     <label for="custoFixo">
                         <p>Custo fixo</p>
-                        <img src="./src/images/questionMarkIcon.png" alt="" class="questionMarkIcon">
+                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
                     </label>
                     <input type="number" name="custoFixo" id="custoFixo" value="10">
                 </div>
                 <div class="inputText">
-                    <label for="custoOperacional">
-                        <p>Custo operacional</p>
-                        <img src="./src/images/questionMarkIcon.png" alt="" class="questionMarkIcon">
-                    </label>
-                    <input type="number" name="custoOperacional" id="custoOperacional" value="10">
-                </div>
-                <div class="inputText">
                     <label for="custoVariavel">
                         <p>Custo variável</p>
-                        <img src="./src/images/questionMarkIcon.png" alt="" class="questionMarkIcon">
+                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
                     </label>
                     <input type="number" name="custoVariavel" id="custoVariavel" value="10">
                 </div>
@@ -59,69 +55,61 @@
                 <h1>Dashboard</h1>
             </div>
             <div id="dashboardInfo">
-                <div id="dashboardSectionOne">
-                    <div class="graphContainer">
-                        <div class="graphArea">
-                            <div class="faturamentoXcustos ct-chart ct-perfect-fourth"></div>
-                        </div>
-                        <div class="textArea">
-                            <p class="title">
-                                Lorem Ipsum
-                            </p>
-                            <p class="content">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p>
-                        </div>
+                <div class="graphContainer">
+                    <div class="graphArea">
+                        <div class="faturamentoXcustos ct-chart ct-perfect-fourth"></div>
                     </div>
-                    <div class="graphContainer">
-                        <div class="graphArea">
-                            <div class="analiseCusto ct-chart ct-perfect-fourth"></div>
-                        </div>
-                        <div class="textArea">
-                            <p class="title">
-                                Lorem Ipsum
-                            </p>
-                            <p class="content">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p>
-                        </div>
-                    </div>
-                    <div class="graphContainer">
-                        <div class="graphArea">
-                            <div class="saude ct-chart ct-perfect-fourth"></div>
-                        </div>
-                        <div class="textArea">
-                            <p class="title">
-                                Lorem Ipsum
-                            </p>
-                            <p class="content">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p>
-                        </div>
+                    <div class="textArea">
+                        <p class="title">
+                            Lorem Ipsum
+                        </p>
+                        <p class="content">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
                     </div>
                 </div>
-                <div id="dashboardSectionTwo">
-                    <div class="graphContainer">
-                        <div class="graphArea">
-                            <div class="custoFixo ct-chart ct-perfect-fourth"></div>
-                            <div class="custoOperacional ct-chart ct-perfect-fourth"></div>
-                            <div class="custoVariavel ct-chart ct-perfect-fourth"></div>
-                            
-                        </div>
-                        <div class="textArea">
-                            <p class="title">
-                                Lorem Ipsum
-                            </p>
-                            <p class="content">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p>
-                        </div>
+                <div class="graphContainer">
+                    <div class="graphArea">
+                        <div class="analiseCusto ct-chart ct-perfect-fourth"></div>
+                    </div>
+                    <div class="textArea">
+                        <p class="title">
+                            Lorem Ipsum
+                        </p>
+                        <p class="content">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
+                    </div>
+                </div>
+                <div class="graphContainer">
+                    <div class="graphArea">
+                        <div class="saude ct-chart ct-perfect-fourth"></div>
+                    </div>
+                    <div class="textArea">
+                        <p class="title">
+                            Lorem Ipsum
+                        </p>
+                        <p class="content">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
+                    </div>
+                </div>
+                <div class="graphContainer">
+                    <div class="graphArea">
+                        <div class="saude ct-chart ct-perfect-fourth"></div>
+                    </div>
+                    <div class="textArea">
+                        <p class="title">
+                            Lorem Ipsum
+                        </p>
+                        <p class="content">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
     <script src="./src/libraries/chartist-js/chartist.min.js"></script>
     <script src="./src/libraries/chartist-js/chartist-bar-labels.js"></script>
     <script src="./src/libraries/chartist-js/fill-donut-plugin/chartist-plugin-fill-donut.js"></script>
