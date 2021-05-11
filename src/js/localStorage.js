@@ -2,7 +2,7 @@ import { renderGraphics } from "./renderGraphs.js";
 
 // Checks if last session data exists
 const checkLastSession = () => {
-    if(localStorage.getItem(sessionData) !== null){
+    if(localStorage.getItem("sessionData") !== null){
         console.log("Last session data found");
         return true;
     }
@@ -13,16 +13,26 @@ const checkLastSession = () => {
 // Loads and displays last session data
 const getLastSession = () => {
     if(checkLastSession()){
-        const data = JSON.parse(localStorage.getItem(sessionData));
+        const data = JSON.parse(localStorage.getItem("sessionData"));
         console.log("Last session data loaded");
-        // Graphics values
+        console.log(data);
+        renderGraphics(data);
+    }else{
+        const data = {
+            valorFaturamento: 0,
+            custoFixo: 0,
+            custoVariavel: 0,
+        }
+        renderGraphics(data);
     }
 }
+
+getLastSession();
 
 // Saves current session data
 const saveSessionData = () => {
     // Object to storage all the data from the current session
-    const sessionData =  {
+    const sessionData = {
         valorFaturamento: Number(document.getElementById("faturamento").value),
         custoFixo: Number(document.getElementById("custoFixo").value),
         custoVariavel: Number(document.getElementById("custoVariavel").value)
