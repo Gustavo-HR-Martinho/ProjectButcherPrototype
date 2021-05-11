@@ -1,23 +1,14 @@
 import { renderGraphics } from "./renderGraphs.js";
 
 // Checks if last session data exists
-const checkLastSession = () => {
+const loadLastSession = () => {
     if(localStorage.getItem("sessionData") !== null){
-        console.log("Last session data found");
-        return true;
-    }
-    console.log("Last session data not found");
-    return false;
-}
-
-// Loads and displays last session data
-const getLastSession = () => {
-    if(checkLastSession()){
         const data = JSON.parse(localStorage.getItem("sessionData"));
-        console.log("Last session data loaded");
-        console.log(data);
+        console.log("Last session data found and loaded");
+        console.log(data)
         renderGraphics(data);
     }else{
+        console.log("Last session data not found, starting with blank graphic");
         const data = {
             valorFaturamento: 0,
             custoFixo: 0,
@@ -25,9 +16,10 @@ const getLastSession = () => {
         }
         renderGraphics(data);
     }
+    return false;
 }
 
-getLastSession();
+loadLastSession();
 
 // Saves current session data
 const saveSessionData = () => {
