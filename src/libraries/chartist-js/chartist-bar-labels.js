@@ -70,7 +70,7 @@
     };
 
     var positionY = options.position.y || function (data) {
-      return ((data.y2 - 5)) + options.labelOffset.y;
+      return ((data.y2 - 30)) + options.labelOffset.y;
     };
 
     return function ctBarLabels(chart) {
