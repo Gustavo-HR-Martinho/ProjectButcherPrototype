@@ -161,15 +161,17 @@ html, body {
     width: 150px;
 }
 
-.graphArea > .ct-chart.ct-perfect-fourth {
-    width: 150px;
-}
 
 #mainContainer > #dashboard > #dashboardInfo > .graphContainer > .graphArea {
     padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#mainContainer > #dashboard > #dashboardInfo > .graphContainer:nth-child(-n+2) > .graphArea {
+    justify-content: initial;
+    display: block;
 }
 
 .graphContainer > .textArea {

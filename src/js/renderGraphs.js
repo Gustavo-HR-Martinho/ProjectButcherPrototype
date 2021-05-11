@@ -1,18 +1,18 @@
 const dataProcessing = (data) => {
     let outputData = {
-        porcentagemFixo: 0,
+        custoOperacional: 0,
         porcentagemOperacional: 0,
+        porcentagemFixo: 0,
         porcentagemVariavel: 0,
-        custoTotal: 0,
         lucro: 0,
         indiceDeSaude: 0
     }
 
-    outputData.custoTotal = data.custoFixo + data.custoOperacional + data.custoVariavel;
-    outputData.porcentagemFixo = (data.custoFixo * 100.0) / outputData.custoTotal;
-    outputData.porcentagemOperacional = (data.custoOperacional * 100.0) / outputData.custoTotal;
-    outputData.porcentagemVariavel = (data.custoVariavel * 100.0) / outputData.custoTotal;
-    outputData.lucro = data.valorFaturamento - outputData.custoTotal;
+    outputData.custoOperacional = data.custoFixo + data.custoVariavel;
+    outputData.porcentagemOperacional = (outputData.custoOperacional * 100) / data.valorFaturamento;
+    outputData.porcentagemFixo = (data.custoFixo * 100.0) / outputData.custoOperacional;
+    outputData.porcentagemVariavel = (data.custoVariavel * 100.0) / outputData.custoOperacional;
+    outputData.lucro = data.valorFaturamento - outputData.custoOperacional;
     outputData.indiceDeSaude = (outputData.lucro / data.valorFaturamento) * 100;
 
     return outputData;
@@ -26,18 +26,23 @@ export function renderGraphics(data){
     const faturamentoXcustosGraphic = {
         data: {
             labels: ['Faturamento', 'Custos'],
-            series: [data.valorFaturamento, processedData.custoTotal],
+            series: [data.valorFaturamento, processedData.custoOperacional],
         },
         options: {
+            width: 400,
+            seriesBarDistance: 5,
+            horizontalBars: true,
             distributeSeries: true,
             // Axis options
             axisX: {
-                showGrid: false,
+                onlyInteger: true,
+                scaleMinSpace: 45,
+                showGrid: true,
+                showLabel: true,
             },
             axisY: {
-                showLabel: false,
+                offset: 90,
                 showGrid: false,
-                offset: 0,
             },
     
             // Plugins
@@ -46,76 +51,85 @@ export function renderGraphics(data){
             ]
         }
     }
-    new Chartist.Bar('.faturamentoXcustos', faturamentoXcustosGraphic.data, faturamentoXcustosGraphic.options);
+    new Chartist.Bar('.faturamentoXcustosGraphic', faturamentoXcustosGraphic.data, faturamentoXcustosGraphic.options);
     
-    // Analise operacioanl graphic
-    const analiseOperacioanlGraphic = {
+    // Faturamento x custos graphic
+    const custosGraphic = {
         data: {
-            series: [20, 20, 25, 35]
+            labels: ['Custo fixo', 'Custo variável'],
+            series: [data.custoFixo, data.custoVariavel],
         },
         options: {
-            donut: true,
-            donutWidth: 20,
-            startAngle: 270,
-            showLabel: false,
-            total: 200,
+            seriesBarDistance: 5,
+            horizontalBars: true,
+            distributeSeries: true,
+            // Axis options
+            axisX: {
+                onlyInteger: true,
+                scaleMinSpace: 45,
+                showGrid: true,
+                showLabel: true,
+            },
+            axisY: {
+                offset: 90,
+                showGrid: false,
+            },
+    
+            // Plugins
             plugins: [
-              ctDonutMarks({
-                marks: [processedData.porcentagemOperacional]
-              })
+              Chartist.plugins.ctBarLabels({})
             ]
         }
     }
-    new Chartist.Pie('.analiseCusto', analiseOperacioanlGraphic.data, analiseOperacioanlGraphic.options);
+    new Chartist.Bar('.custosGraphic', custosGraphic.data, custosGraphic.options);
 
-    // Business health graphic
-    const saudeData = {
-        series: [25, 25, 25, 25]
-    }
-    
-    const saudeOptions = {
-        donut: true,
-        donutWidth: 20,
-        startAngle: 270,
-        showLabel: false,
-        total: 200,
-        plugins: [
-          ctDonutMarks({
-            marks: [processedData.indiceDeSaude]
-          })
-        ]
-    }
-    
-    new Chartist.Pie('.saude', saudeData, saudeOptions);
-
-    // Custo fixo graphic
-    const custoFixoGraphic = {
+    // Analise operacioanl graphic
+    const analiseOperacioanlGraphic = {
         data: {
-            series: [160, 60]
+            series: [44, 44, 55, 75]
         },
         options: {
             donut: true,
-            donutWidth: 50,
+            donutWidth: 30,
             startAngle: 210,
             total: 260,
             showLabel: false,
             plugins: [
                 Chartist.plugins.fillDonut({
                     items: [{
-                        content: '<i class="fa fa-tachometer"></i>',
-                        position: 'bottom',
-                        offsetY : 10,
-                        offsetX: -2
-                    }, {
-                        content: '<h3>160<span class="small">mph</span></h3>'
+                        content: `<h3>${processedData.custoOperacional}<span class="small">%</span></h3>`
                     }]
+                }),
+                ctDonutMarks({
+                    marks: [processedData.porcentagemOperacional * 2.2]
                 })
             ],
         }
     }
+    new Chartist.Pie('.analiseCustosGraphic', analiseOperacioanlGraphic.data, analiseOperacioanlGraphic.options);
 
-    new Chartist.Pie('.custoFixo', custoFixoData, custoFixoOptions);
-    new Chartist.Pie('.custoOperacional', custoFixoData, custoFixoOptions);
-    new Chartist.Pie('.custoVariavel', custoFixoData, custoFixoOptions);
-
+    // Business health graphic
+    const saudeNegocioGraphic = {
+        data: {
+            series: [54.5, 54.5, 54.5, 54.5]
+        },
+        options: {
+            donut: true,
+            donutWidth: 30,
+            startAngle: 210,
+            total: 260,
+            showLabel: false,
+            plugins: [
+                Chartist.plugins.fillDonut({
+                    items: [{
+                        content: `<h3>${processedData.indiceDeSaude}<span class="small">%</span></h3>`
+                    }]
+                }),
+                ctDonutMarks({
+                    marks: [processedData.indiceDeSaude*2.2]
+                })
+            ],
+        }
+    }    
+    new Chartist.Pie('.saudeGraphic', saudeNegocioGraphic.data, saudeNegocioGraphic.options);
 }

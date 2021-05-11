@@ -25,7 +25,6 @@ const saveSessionData = () => {
     const sessionData =  {
         valorFaturamento: Number(document.getElementById("faturamento").value),
         custoFixo: Number(document.getElementById("custoFixo").value),
-        custoOperacional: Number(document.getElementById("custoOperacional").value),
         custoVariavel: Number(document.getElementById("custoVariavel").value)
     }
     renderGraphics(sessionData);

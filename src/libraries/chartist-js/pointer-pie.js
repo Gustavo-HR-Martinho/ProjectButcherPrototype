@@ -5,7 +5,7 @@ function ctDonutMarks(options) {
       offset: 10,
       lineAttributes: {
         stroke: 'black',
-        'stroke-width': '10px',
+        'stroke-width': '5px',
       }
     };
 
