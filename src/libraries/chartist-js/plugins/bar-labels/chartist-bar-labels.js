@@ -80,6 +80,12 @@
           // If the data we're drawing is the actual bar, let's add the text
           // inside of it
           if(data.type === 'bar') {
+            if(typeof data.value.x === "undefined"){
+              data.value.x = 0;
+            }
+            if(typeof data.value.y === "undefined"){
+              data.value.y = 0;
+            }
             data.group.elem('text', {
               // This gets the middle point of the bars and then adds the
               // optional offset to them

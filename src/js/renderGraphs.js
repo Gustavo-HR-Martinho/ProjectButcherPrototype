@@ -8,6 +8,10 @@ const dataProcessing = (data) => {
         indiceDeSaude: 0
     }
 
+    if(data.valorFaturamento === 0){
+        return outputData;
+    }
+
     outputData.custoOperacional = data.custoFixo + data.custoVariavel;
     outputData.porcentagemOperacional = (outputData.custoOperacional * 100) / data.valorFaturamento;
     outputData.porcentagemFixo = (data.custoFixo * 100.0) / outputData.custoOperacional;
@@ -20,7 +24,8 @@ const dataProcessing = (data) => {
 
 export function renderGraphics(data){
     const processedData = dataProcessing(data);
-    console.log(processedData)
+    console.log('Data processed');
+    console.log(processedData);
 
     // Faturamento x custos graphic
     const faturamentoXcustosGraphic = {
