@@ -26,7 +26,7 @@ export function renderGraphics(data){
     const faturamentoXcustosGraphic = {
         data: {
             labels: ['Faturamento', 'Custos'],
-            series: [data.valorFaturamento, processedData.custoOperacional],
+            series: [{value: data.valorFaturamento, className: 'green'}, {value: processedData.custoOperacional, className: 'orange'}],
         },
         options: {
             width: 400,
@@ -57,7 +57,7 @@ export function renderGraphics(data){
     const custosGraphic = {
         data: {
             labels: ['Custo fixo', 'Custo variável'],
-            series: [data.custoFixo, data.custoVariavel],
+            series: [{value: data.custoFixo, className: 'green'}, {value: data.custoVariavel, className: 'waterGreen'}],
         },
         options: {
             seriesBarDistance: 5,
@@ -86,11 +86,11 @@ export function renderGraphics(data){
     // Analise operacioanl graphic
     const analiseOperacioanlGraphic = {
         data: {
-            series: [44, 44, 55, 75]
+            series: [{value: 44, className: 'green'}, {value: 44, className: 'waterGreen'}, {value: 55, className: 'yellow'}, {value: 75, className: 'orange'}]
         },
         options: {
             donut: true,
-            donutWidth: 30,
+            donutWidth: 50,
             startAngle: 210,
             total: 260,
             showLabel: false,
@@ -111,11 +111,11 @@ export function renderGraphics(data){
     // Business health graphic
     const saudeNegocioGraphic = {
         data: {
-            series: [54.5, 54.5, 54.5, 54.5]
+            series: [{value: 54.5, className: 'orange'}, {value: 54.5, className: 'yellow'}, {value: 54.5, className: 'waterGreen'}, {value: 54.5, className: 'green'}]
         },
         options: {
             donut: true,
-            donutWidth: 30,
+            donutWidth: 50,
             startAngle: 210,
             total: 260,
             showLabel: false,

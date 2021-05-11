@@ -4,8 +4,9 @@ function ctDonutMarks(options) {
       marks: [],
       offset: 10,
       lineAttributes: {
-        stroke: 'black',
+        stroke: '#1f1f1f',
         'stroke-width': '5px',
+        'stroke-linecap': 'round'
       }
     };
 
