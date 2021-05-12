@@ -14,7 +14,7 @@ const dataProcessing = (data) => {
         indiceDeSaude: 0
     }
 
-    if(data.valorFaturamento === 0){
+    if (data.valorFaturamento === 0) {
         return outputData;
     }
 
@@ -28,7 +28,7 @@ const dataProcessing = (data) => {
     return outputData;
 }
 
-export function renderGraphics(data){
+export function renderGraphics(data) {
     const processedData = dataProcessing(data);
     console.log('Data processed');
     console.log(processedData);
@@ -38,7 +38,7 @@ export function renderGraphics(data){
     const faturamentoXcustosGraphic = {
         data: {
             labels: ['Faturamento', 'Custos'],
-            series: [{value: data.valorFaturamento.toFixed(2), className: 'green'}, {value: processedData.custoOperacional.toFixed(2), className: 'orange'}],
+            series: [{ value: data.valorFaturamento.toFixed(2), className: 'green' }, { value: processedData.custoOperacional.toFixed(2), className: 'orange' }],
         },
         options: {
             seriesBarDistance: 5,
@@ -50,15 +50,16 @@ export function renderGraphics(data){
                 scaleMinSpace: 45,
                 showGrid: true,
                 showLabel: true,
+                offset: 50,
             },
             axisY: {
                 offset: 90,
                 showGrid: false,
             },
-    
+
             // Plugins
             plugins: [
-              Chartist.plugins.ctBarLabels({})
+                Chartist.plugins.ctBarLabels({})
             ]
         },
         responsive: [
@@ -81,12 +82,12 @@ export function renderGraphics(data){
         ]
     }
     new Chartist.Bar('.faturamentoXcustosGraphic', faturamentoXcustosGraphic.data, faturamentoXcustosGraphic.options, faturamentoXcustosGraphic.responsive);
-    
+
     // Faturamento x custos graphic
     const custosGraphic = {
         data: {
             labels: ['Custo fixo', 'Custo variável'],
-            series: [{value: data.custoFixo.toFixed(2), className: 'green'}, {value: data.custoVariavel.toFixed(2), className: 'waterGreen'}],
+            series: [{ value: data.custoFixo.toFixed(2), className: 'green' }, { value: data.custoVariavel.toFixed(2), className: 'waterGreen' }],
         },
         options: {
             seriesBarDistance: 5,
@@ -98,15 +99,16 @@ export function renderGraphics(data){
                 scaleMinSpace: 45,
                 showGrid: true,
                 showLabel: true,
+                offset: 50,
             },
             axisY: {
                 offset: 90,
                 showGrid: false,
             },
-    
+
             // Plugins
             plugins: [
-              Chartist.plugins.ctBarLabels({})
+                Chartist.plugins.ctBarLabels({})
             ]
         },
         responsive: [
@@ -133,7 +135,7 @@ export function renderGraphics(data){
     // Analise operacioanl graphic
     const analiseOperacioanlGraphic = {
         data: {
-            series: [{value: 43.6, className: 'green'}, {value: 43.6, className: 'waterGreen'}, {value: 54.5, className: 'yellow'}, {value: 76.3, className: 'orange'}]
+            series: [{ value: 43.6, className: 'green' }, { value: 43.6, className: 'waterGreen' }, { value: 54.5, className: 'yellow' }, { value: 76.3, className: 'orange' }]
         },
         options: {
             donut: true,
@@ -164,7 +166,7 @@ export function renderGraphics(data){
     // Business health graphic
     const saudeNegocioGraphic = {
         data: {
-            series: [{value: 54.5, className: 'orange'}, {value: 54.5, className: 'yellow'}, {value: 54.5, className: 'waterGreen'}, {value: 54.5, className: 'green'}]
+            series: [{ value: 54.5, className: 'orange' }, { value: 54.5, className: 'yellow' }, { value: 54.5, className: 'waterGreen' }, { value: 54.5, className: 'green' }]
         },
         options: {
             donut: true,
@@ -180,7 +182,7 @@ export function renderGraphics(data){
                     }]
                 }),
                 ctDonutMarks({
-                    marks: [((((limitToRange(processedData.indiceDeSaude, -10, 30) + 10) * 100) / 40)*2.18).toFixed(2)]
+                    marks: [((((limitToRange(processedData.indiceDeSaude, -10, 30) + 10) * 100) / 40) * 2.18).toFixed(2)]
                 })
             ],
         },
@@ -189,9 +191,9 @@ export function renderGraphics(data){
                 donutWidth: 20,
             }]
         ]
-    }    
+    }
 
 
-    
+
     new Chartist.Pie('.saudeGraphic', saudeNegocioGraphic.data, saudeNegocioGraphic.options, saudeNegocioGraphic.responsive);
 }
