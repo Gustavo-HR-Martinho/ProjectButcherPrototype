@@ -60,9 +60,27 @@ export function renderGraphics(data){
             plugins: [
               Chartist.plugins.ctBarLabels({})
             ]
-        }
+        },
+        responsive: [
+            ['screen and (max-width: 1024px)', {
+                seriesBarDistance: 5,
+                horizontalBars: false,
+                distributeSeries: true,
+                // Axis options
+                axisX: {
+                    showGrid: false,
+                },
+                axisY: {
+                    offset: 0,
+                    onlyInteger: true,
+                    scaleMinSpace: 45,
+                    showGrid: true,
+                    showLabel: true,
+                },
+            }]
+        ]
     }
-    new Chartist.Bar('.faturamentoXcustosGraphic', faturamentoXcustosGraphic.data, faturamentoXcustosGraphic.options);
+    new Chartist.Bar('.faturamentoXcustosGraphic', faturamentoXcustosGraphic.data, faturamentoXcustosGraphic.options, faturamentoXcustosGraphic.responsive);
     
     // Faturamento x custos graphic
     const custosGraphic = {
@@ -90,9 +108,27 @@ export function renderGraphics(data){
             plugins: [
               Chartist.plugins.ctBarLabels({})
             ]
-        }
+        },
+        responsive: [
+            ['screen and (max-width: 1024px)', {
+                seriesBarDistance: 5,
+                horizontalBars: false,
+                distributeSeries: true,
+                // Axis options
+                axisX: {
+                    showGrid: false,
+                },
+                axisY: {
+                    offset: 0,
+                    onlyInteger: true,
+                    scaleMinSpace: 45,
+                    showGrid: true,
+                    showLabel: true,
+                },
+            }]
+        ]
     }
-    new Chartist.Bar('.custosGraphic', custosGraphic.data, custosGraphic.options);
+    new Chartist.Bar('.custosGraphic', custosGraphic.data, custosGraphic.options, custosGraphic.responsive);
 
     // Analise operacioanl graphic
     const analiseOperacioanlGraphic = {
@@ -101,6 +137,7 @@ export function renderGraphics(data){
         },
         options: {
             donut: true,
+            chartPadding: 14,
             donutWidth: 50,
             startAngle: 210,
             total: 260,
@@ -115,9 +152,14 @@ export function renderGraphics(data){
                     marks: [(limitToRange(processedData.porcentagemOperacional, 0, 100) * 2.18).toFixed(2)]
                 })
             ],
-        }
+        },
+        responsive: [
+            ['screen and (max-width: 1024px)', {
+                donutWidth: 20,
+            }]
+        ]
     }
-    new Chartist.Pie('.analiseCustosGraphic', analiseOperacioanlGraphic.data, analiseOperacioanlGraphic.options);
+    new Chartist.Pie('.analiseCustosGraphic', analiseOperacioanlGraphic.data, analiseOperacioanlGraphic.options, analiseOperacioanlGraphic.responsive);
 
     // Business health graphic
     const saudeNegocioGraphic = {
@@ -126,6 +168,7 @@ export function renderGraphics(data){
         },
         options: {
             donut: true,
+            chartPadding: 14,
             donutWidth: 50,
             startAngle: 210,
             total: 260,
@@ -140,10 +183,15 @@ export function renderGraphics(data){
                     marks: [((((limitToRange(processedData.indiceDeSaude, -10, 30) + 10) * 100) / 40)*2.18).toFixed(2)]
                 })
             ],
-        }
+        },
+        responsive: [
+            ['screen and (max-width: 1024px)', {
+                donutWidth: 20,
+            }]
+        ]
     }    
 
 
     
-    new Chartist.Pie('.saudeGraphic', saudeNegocioGraphic.data, saudeNegocioGraphic.options);
+    new Chartist.Pie('.saudeGraphic', saudeNegocioGraphic.data, saudeNegocioGraphic.options, saudeNegocioGraphic.responsive);
 }
