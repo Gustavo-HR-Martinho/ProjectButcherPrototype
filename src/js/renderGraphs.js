@@ -31,7 +31,7 @@ export function renderGraphics(data){
     const faturamentoXcustosGraphic = {
         data: {
             labels: ['Faturamento', 'Custos'],
-            series: [{value: data.valorFaturamento, className: 'green'}, {value: processedData.custoOperacional, className: 'orange'}],
+            series: [{value: data.valorFaturamento.toFixed(2), className: 'green'}, {value: processedData.custoOperacional.toFixed(2), className: 'orange'}],
         },
         options: {
             seriesBarDistance: 5,
@@ -61,7 +61,7 @@ export function renderGraphics(data){
     const custosGraphic = {
         data: {
             labels: ['Custo fixo', 'Custo variável'],
-            series: [{value: data.custoFixo, className: 'green'}, {value: data.custoVariavel, className: 'waterGreen'}],
+            series: [{value: data.custoFixo.toFixed(2), className: 'green'}, {value: data.custoVariavel.toFixed(2), className: 'waterGreen'}],
         },
         options: {
             seriesBarDistance: 5,
@@ -101,11 +101,11 @@ export function renderGraphics(data){
             plugins: [
                 Chartist.plugins.fillDonut({
                     items: [{
-                        content: `<h3>${processedData.custoOperacional}<span class="small">%</span></h3>`
+                        content: `<h3>${processedData.custoOperacional.toFixed(2)}<span class="small">%</span></h3>`
                     }]
                 }),
                 ctDonutMarks({
-                    marks: [processedData.porcentagemOperacional * 2.2]
+                    marks: [(processedData.porcentagemOperacional * 2.2).toFixed(2)]
                 })
             ],
         }
@@ -126,11 +126,11 @@ export function renderGraphics(data){
             plugins: [
                 Chartist.plugins.fillDonut({
                     items: [{
-                        content: `<h3>${processedData.indiceDeSaude}<span class="small">%</span></h3>`
+                        content: `<h3>${processedData.indiceDeSaude.toFixed(2)}<span class="small">%</span></h3>`
                     }]
                 }),
                 ctDonutMarks({
-                    marks: [processedData.indiceDeSaude*2.2]
+                    marks: [(processedData.indiceDeSaude*2.2).toFixed(2)]
                 })
             ],
         }
