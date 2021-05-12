@@ -1,3 +1,9 @@
+const limitToRange = (value, min, max) => {
+    const test = Math.min(Math.max(value, min), max)
+    console.log(test)
+    return test;
+}
+
 const dataProcessing = (data) => {
     let outputData = {
         custoOperacional: 0,
@@ -26,6 +32,7 @@ export function renderGraphics(data){
     const processedData = dataProcessing(data);
     console.log('Data processed');
     console.log(processedData);
+
 
     // Faturamento x custos graphic
     const faturamentoXcustosGraphic = {
@@ -90,7 +97,7 @@ export function renderGraphics(data){
     // Analise operacioanl graphic
     const analiseOperacioanlGraphic = {
         data: {
-            series: [{value: 44, className: 'green'}, {value: 44, className: 'waterGreen'}, {value: 55, className: 'yellow'}, {value: 75, className: 'orange'}]
+            series: [{value: 43.6, className: 'green'}, {value: 43.6, className: 'waterGreen'}, {value: 54.5, className: 'yellow'}, {value: 76.3, className: 'orange'}]
         },
         options: {
             donut: true,
@@ -101,11 +108,11 @@ export function renderGraphics(data){
             plugins: [
                 Chartist.plugins.fillDonut({
                     items: [{
-                        content: `<h3>${processedData.custoOperacional.toFixed(2)}<span class="small">%</span></h3>`
+                        content: `<h3>${processedData.porcentagemOperacional.toFixed(2)}<span class="small">%</span></h3>`
                     }]
                 }),
                 ctDonutMarks({
-                    marks: [(processedData.porcentagemOperacional * 2.2).toFixed(2)]
+                    marks: [(limitToRange(processedData.porcentagemOperacional, 0, 100) * 2.18).toFixed(2)]
                 })
             ],
         }
@@ -130,10 +137,13 @@ export function renderGraphics(data){
                     }]
                 }),
                 ctDonutMarks({
-                    marks: [(processedData.indiceDeSaude*2.2).toFixed(2)]
+                    marks: [((((limitToRange(processedData.indiceDeSaude, -10, 30) + 10) * 100) / 40)*2.18).toFixed(2)]
                 })
             ],
         }
     }    
+
+
+    
     new Chartist.Pie('.saudeGraphic', saudeNegocioGraphic.data, saudeNegocioGraphic.options);
 }
