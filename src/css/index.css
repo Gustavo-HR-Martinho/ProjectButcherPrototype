@@ -44,7 +44,7 @@
     margin: 2rem 0 0 5rem;
 }
 
-#button-container > input {
+#button-container > a > input {
     cursor: pointer;
     border-radius: 5px;
     background: white;
