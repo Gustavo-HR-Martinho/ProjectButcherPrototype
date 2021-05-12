@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="./src/css/global.css">
     <link rel="stylesheet" href="./src/css/dashboard.css">
+    <link rel="stylesheet" href="./src/css/graphics.css">
     <link rel="stylesheet" href="./src/libraries/chartist-js/chartist.css">
 
     <script type="module" src="./src/js/localStorage.js"></script>
@@ -58,7 +59,7 @@
             <div id="dashboardInfo">
                 <div class="graphContainer">
                     <div class="graphArea">
-                        <div class="faturamentoXcustos ct-chart ct-perfect-fourth"></div>
+                        <div class="faturamentoXcustosGraphic ct-chart ct-perfect-fourth"></div>
                     </div>
                     <div class="textArea">
                         <p class="title">
@@ -71,7 +72,7 @@
                 </div>
                 <div class="graphContainer">
                     <div class="graphArea">
-                        <div class="analiseCusto ct-chart ct-perfect-fourth"></div>
+                        <div class="custosGraphic ct-chart ct-perfect-fourth"></div>
                     </div>
                     <div class="textArea">
                         <p class="title">
@@ -84,7 +85,7 @@
                 </div>
                 <div class="graphContainer">
                     <div class="graphArea">
-                        <div class="saude ct-chart ct-perfect-fourth"></div>
+                        <div class="analiseCustosGraphic ct-chart ct-perfect-fourth"></div>
                     </div>
                     <div class="textArea">
                         <p class="title">
@@ -97,7 +98,7 @@
                 </div>
                 <div class="graphContainer">
                     <div class="graphArea">
-                        <div class="saude ct-chart ct-perfect-fourth"></div>
+                        <div class="saudeGraphic ct-chart ct-perfect-fourth"></div>
                     </div>
                     <div class="textArea">
                         <p class="title">
@@ -112,9 +113,9 @@
         </div>
     </main>
     <script src="./src/libraries/chartist-js/chartist.min.js"></script>
-    <script src="./src/libraries/chartist-js/chartist-bar-labels.js"></script>
-    <script src="./src/libraries/chartist-js/fill-donut-plugin/chartist-plugin-fill-donut.js"></script>
-    <script src="./src/libraries/chartist-js/pointer-pie.js"></script>
+    <script src="./src/libraries/chartist-js/plugins/bar-labels/chartist-bar-labels.js"></script>
+    <script src="./src/libraries/chartist-js/plugins/fill-donut/chartist-plugin-fill-donut.js"></script>
+    <script src="./src/libraries/chartist-js/plugins/pointer-pie/pointer-pie.js"></script>
 </body>
 
 </html>

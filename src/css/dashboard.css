@@ -88,7 +88,8 @@
 
 #mainContainer > #sideNav > #inputContainer > .inputText > input{
     font-size: 1.2rem;
-    padding: 0 0 0 10px;
+    text-align: right;
+    padding: 0 10px 0 0;
     border-radius: 5px;
     border: none;
     background-color: var(--lighter-grey);
@@ -138,15 +139,17 @@
     width: 150px;
 }
 
-.graphArea > .ct-chart.ct-perfect-fourth {
-    width: 150px;
-}
 
 #mainContainer > #dashboard > #dashboardInfo > .graphContainer > .graphArea {
     padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#mainContainer > #dashboard > #dashboardInfo > .graphContainer:nth-child(-n+2) > .graphArea {
+    justify-content: initial;
+    display: block;
 }
 
 .graphContainer > .textArea {

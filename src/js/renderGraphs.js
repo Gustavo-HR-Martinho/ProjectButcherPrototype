@@ -34,7 +34,6 @@ export function renderGraphics(data){
             series: [{value: data.valorFaturamento, className: 'green'}, {value: processedData.custoOperacional, className: 'orange'}],
         },
         options: {
-            width: 400,
             seriesBarDistance: 5,
             horizontalBars: true,
             distributeSeries: true,
