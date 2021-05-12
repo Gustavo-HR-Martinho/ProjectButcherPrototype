@@ -25,9 +25,9 @@ loadLastSession();
 const saveSessionData = () => {
     // Object to storage all the data from the current session
     const sessionData = {
-        valorFaturamento: Number(document.getElementById("faturamento").value),
-        custoFixo: Number(document.getElementById("custoFixo").value),
-        custoVariavel: Number(document.getElementById("custoVariavel").value)
+        valorFaturamento: revertMask(document.getElementById("faturamento").value),
+        custoFixo: revertMask(document.getElementById("custoFixo").value),
+        custoVariavel: revertMask(document.getElementById("custoVariavel").value)
     }
     renderGraphics(sessionData);
     localStorage.setItem("sessionData", JSON.stringify(sessionData));
