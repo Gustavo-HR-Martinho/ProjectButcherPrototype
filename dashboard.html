@@ -13,37 +13,57 @@
     <link rel="stylesheet" href="./src/css/dashboard.css">
     <link rel="stylesheet" href="./src/css/graphics.css">
     <link rel="stylesheet" href="./src/libraries/chartist-js/chartist.css">
+    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
 
     <!-- Fonts import -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main id="mainContainer">
+        <div class="black-overlay"></div>
+        <div class="toggle" onclick="toggleMenu()">
+            <svg viewBox="0 0 100 80" width="40" height="40">
+                <rect width="100" height="20" rx="8"></rect>
+                <rect y="30" width="100" height="20" rx="8"></rect>
+                <rect y="60" width="100" height="20" rx="8"></rect>
+            </svg>
+        </div>
         <div id="sideNav" class="sideNav">
-            <div id="navTitle">
+            <div id="navTitle" class="navTitle">
                 <h1>Lorem Ipsum</h1>
             </div>
             <div id="inputContainer">
                 <div class="inputText">
                     <label for="faturamento">
                         <p>Faturamento</p>
-                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        <button class="questionMarkButton" data-balloon-length="medium"
+                            aria-label="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum" data-balloon-pos="up"><img
+                                src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        </button>
                     </label>
                     <input type="text" name="faturamento" id="faturamento" value="0">
                 </div>
                 <div class="inputText">
                     <label for="custoFixo">
                         <p>Custo fixo</p>
-                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        <button class="questionMarkButton" data-balloon-length="medium"
+                            aria-label="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum" data-balloon-pos="up"><img
+                                src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        </button>
                     </label>
                     <input type="text" name="custoFixo" id="custoFixo" value="0">
                 </div>
                 <div class="inputText">
                     <label for="custoVariavel">
                         <p>Custo variável</p>
-                        <img src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        <button class="questionMarkButton" data-balloon-length="medium"
+                            aria-label="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum" data-balloon-pos="up"><img
+                                src="./src/images/questionMarkIcon.svg" alt="" class="questionMarkIcon">
+                        </button>
                     </label>
                     <input type="text" name="custoVariavel" id="custoVariavel" value="0">
                 </div>
@@ -112,7 +132,7 @@
             </div>
         </div>
     </main>
-    
+
     <!-- Library scripts -->
     <script src="./src/libraries/vanilla-masker/vanilla-masker.js"></script>
     <script src="./src/libraries/chartist-js/chartist.min.js"></script>
@@ -121,6 +141,7 @@
     <script src="./src/libraries/chartist-js/plugins/pointer-pie/pointer-pie.js"></script>
 
     <!-- Custom scripts -->
+    <script src="./src/js/dashboardscript.js"></script>
     <script src="./src/js/inputMasks.js"></script>
     <script type="module" src="./src/js/localStorage.js"></script>
 </body>

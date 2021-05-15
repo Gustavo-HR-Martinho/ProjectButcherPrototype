@@ -2,30 +2,63 @@
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 400px auto;
     background-color: var(--light-grey);
 }
 
-#mainContainer > #sideNav {
+.black-overlay {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.0);
+    transition: ease-in 0.3s;
+}
+
+#mainContainer > .toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--lighter-blue);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: white;
+    visibility: hidden;
+    z-index: 5;
+}
+
+#mainContainer > .toggle:hover {
+    background: var(--dark-blue);
+}
+
+#mainContainer > .sideNav {
+    z-index: 5;
+    height: 100%;
+    width: 400px;
     background-color: var(--lighter-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#mainContainer > #sideNav > #navTitle {
+#mainContainer > .sideNav > .navTitle {
     width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-#mainContainer > #sideNav > #navTitle > h1{
+#mainContainer > .sideNav > .navTitle > h1{
     margin-top: 1.2rem;
     color: var(--white);
 }
 
-#mainContainer > #sideNav > #inputContainer{
+#mainContainer > .sideNav > #inputContainer{
     color: var(--white);
     display: flex;
     width: 70%;
@@ -33,21 +66,21 @@
     align-content: center;
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputText:first-child {
+#mainContainer > .sideNav > #inputContainer > .inputText:first-child {
     margin: 30px 0 0 0;
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputText {
-    margin: 30px 0 0 0;
-    width: 100%;
-}
-
-#mainContainer > #sideNav > #inputContainer > .inputButton {
+#mainContainer > .sideNav > #inputContainer > .inputText {
     margin: 30px 0 0 0;
     width: 100%;
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputButton > input {
+#mainContainer > .sideNav > #inputContainer > .inputButton {
+    margin: 30px 0 0 0;
+    width: 100%;
+}
+
+#mainContainer > .sideNav > #inputContainer > .inputButton > input {
     cursor: pointer;
     width: 100%;
     height: 40px;
@@ -60,33 +93,35 @@
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4);
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputButton > input:hover {
+#mainContainer > .sideNav > #inputContainer > .inputButton > input:hover {
     background-color: var(--dark-blue);
     transition: 0.2s ease;
 }
 
 
-#mainContainer > #sideNav > #inputContainer > .inputText > label{
+#mainContainer > .sideNav > #inputContainer > .inputText > label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;   
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputText > label > p{
+#mainContainer > .sideNav > #inputContainer > .inputText > label > p{
     font-size: 1.2rem;
     padding: 0 0 0 5px;
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputText > label > img{
+#mainContainer > .sideNav > #inputContainer > .inputText > label >.questionMarkButton > img{
     width: 15px; 
 }
 
-#mainContainer > #sideNav > #inputContainer > .questionMarkIcon {
-    width: 20px;
+#mainContainer > .sideNav > #inputContainer > .inputText > label > .questionMarkButton{
+    position: relative;
+    background: 0;
+    border: none;
 }
 
-#mainContainer > #sideNav > #inputContainer > .inputText > input{
+#mainContainer > .sideNav > #inputContainer > .inputText > input{
     font-size: 1.2rem;
     text-align: right;
     padding: 0 10px 0 0;
@@ -108,6 +143,7 @@
 #mainContainer > #dashboard > #dashboardTitle {
     margin-top: 1.2rem;
     display: flex;
+    justify-content: flex-start;
     width: 90%;
 }
 
@@ -174,8 +210,25 @@
 }
 
 @media screen and (max-width: 768px) {
-    #mainContainer > #sideNav {
-        display: none;
+    #mainContainer > .toggle {
+        visibility: visible;
+    }
+
+    #mainContainer > .black-overlay.active {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #mainContainer > .sideNav {
+        width: 0;
+        position: fixed;
+        left: 0;
+        visibility: hidden;
+    }
+    
+    #mainContainer > .sideNav.active{
+        transition: 0.5s;
+        width: 300px;
+        visibility: visible;
     }
 
     #mainContainer {
@@ -192,6 +245,7 @@
         width: 15rem;
         height: 10;
         margin-top: 1.5rem;
+        padding: 0 0 3rem 0;
         display: grid;
         width: 100%;
         justify-content: center;
@@ -201,6 +255,11 @@
         grid-column-gap: 2rem;
         grid-row-gap: 2rem;
     }    
+
+    #mainContainer > #dashboard > #dashboardInfo > .graphContainer:nth-child(-n+2) > .graphArea {
+        justify-content: initial;
+        display: block;
+    }
 }
 
 @media screen and (max-width:  1360px) {
