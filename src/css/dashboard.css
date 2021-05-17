@@ -262,7 +262,7 @@
     }
 }
 
-@media screen and (max-width:  1360px) {
+@media screen and (max-width:  1440px) {
     #mainContainer > #dashboard > #dashboardInfo > .graphContainer {
             height: 15rem;
             width: 20rem;
