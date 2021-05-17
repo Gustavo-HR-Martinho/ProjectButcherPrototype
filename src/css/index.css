@@ -3,6 +3,7 @@
 }
 
 #background {
+    padding: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -11,6 +12,7 @@
     align-content: flex-start;
     background: rgb(90,253,199);
     background: linear-gradient(135deg, rgba(90,253,199,1) 0%, rgba(0,74,173,1) 100%);
+    overflow: hidden;
 }
 
 #title {
@@ -40,7 +42,7 @@
 }
 
 #button-container {
-    width: 200px;
+    width: 210px;
     margin: 2rem 0 0 5rem;
 }
 
