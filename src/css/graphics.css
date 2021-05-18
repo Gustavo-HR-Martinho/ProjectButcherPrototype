@@ -1,19 +1,19 @@
 .green {
-    stroke: #5AFDC7;
-    fill: #5AFDC7;
+    stroke: #3db1fe;
+    fill: #3db1fe;
 }
 
 .waterGreen { 
-    stroke: #3EDAD8;
-    fill: #3EDAD8;
+    stroke: #fdd128;
+    fill: #fdd128;
 }
 
 .yellow {
-    stroke: #FFBD59;
-    fill: #FFBD59;
+    stroke: #fe336a;
+    fill: #fe336a;
 }
 
 .orange {
-    stroke: #FF914D;
-    fill: #FF914D;
+    stroke: #414c8c;
+    fill: #414c8c;
 }

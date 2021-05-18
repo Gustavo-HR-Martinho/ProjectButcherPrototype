@@ -37,6 +37,8 @@
 }
 
 #mainContainer > .sideNav {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4); 
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4);
     z-index: 5;
     height: 100%;
     width: 400px;
@@ -55,6 +57,7 @@
 
 #mainContainer > .sideNav > .navTitle > h1{
     margin-top: 1.2rem;
+    font-weight: 200;
     color: var(--white);
 }
 
@@ -147,6 +150,10 @@
     width: 90%;
 }
 
+#mainContainer > #dashboard > #dashboardTitle > h1{
+    font-weight: 300;
+}
+
 #mainContainer > #dashboard > #dashboardInfo {
     margin-top: 1.5rem;
     display: grid;
@@ -197,7 +204,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    padding: 5px;
+    padding: 10px;
 }
 
 .graphContainer > .textArea > p:first-child {

@@ -1,11 +1,11 @@
 :root{
     --white: #fff;
-    --black: #111;
+    --black: #353839;
     --light-grey: rgb(245, 245, 245);
     --lighter-grey: rgb(236, 236, 236);
-    --blue: rgb(35, 146, 250);
-    --lighter-blue: #13538A;
-    --dark-blue: rgb(27, 125, 216);
+    --blue: #434cc9;
+    --lighter-blue: #414c8c;
+    --dark-blue: #303ace;
 }
 
 * {
@@ -24,7 +24,7 @@ html, body {
     height: 100%;
     font-size: 16px;
     background: var(--light-grey);
-    color: rgb(49, 49, 49);
+    color: var(--black);
 }
 
 

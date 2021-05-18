@@ -11,7 +11,7 @@
     justify-content: center;
     align-content: flex-start;
     background: rgb(90,253,199);
-    background: linear-gradient(135deg, rgba(90,253,199,1) 0%, rgba(0,74,173,1) 100%);
+    background: linear-gradient(135deg, #3db1fe 0%, #434cc9 100%);
     overflow: hidden;
 }
 
