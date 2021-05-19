@@ -26,6 +26,7 @@ const saveSessionData = () => {
     // Object to storage all the data from the current session
     const sessionData = {
         valorFaturamento: revertMask(document.getElementById("faturamento").value),
+        valorCompra: revertMask(document.getElementById("compras").value),
         custoFixo: revertMask(document.getElementById("custoFixo").value),
         custoVariavel: revertMask(document.getElementById("custoVariavel").value)
     }

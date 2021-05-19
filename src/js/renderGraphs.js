@@ -1,6 +1,5 @@
 const limitToRange = (value, min, max) => {
     const test = Math.min(Math.max(value, min), max)
-    console.log(test)
     return test;
 }
 
@@ -23,7 +22,9 @@ const dataProcessing = (data) => {
     outputData.porcentagemFixo = (data.custoFixo * 100.0) / outputData.custoOperacional;
     outputData.porcentagemVariavel = (data.custoVariavel * 100.0) / outputData.custoOperacional;
     outputData.lucro = data.valorFaturamento - outputData.custoOperacional;
-    outputData.indiceDeSaude = (outputData.lucro / data.valorFaturamento) * 100;
+    // outputData.indiceDeSaude = ((outputData.custoOperacional + data.valorCompras) / data.valorFaturamento) * 100
+    outputData.indiceDeSaude = ((data.valorFaturamento - (data.valorCompra + outputData.custoOperacional)) /  data.valorFaturamento) * 100;
+
 
     return outputData;
 }
