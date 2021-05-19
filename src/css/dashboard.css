@@ -42,7 +42,8 @@
     z-index: 5;
     height: 100%;
     width: 400px;
-    background-color: var(--lighter-blue);
+    background: rgb(90,253,199);
+    background: linear-gradient(0deg, #3db1fe 0%, #434cc9 100%);
     display: flex;
     flex-direction: column;
     align-items: center;

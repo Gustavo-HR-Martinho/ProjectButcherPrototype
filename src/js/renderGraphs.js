@@ -39,7 +39,7 @@ export function renderGraphics(data) {
     const faturamentoXcustosGraphic = {
         data: {
             labels: ['Faturamento', 'Custos'],
-            series: [{ value: data.valorFaturamento.toFixed(2), className: 'green' }, { value: processedData.custoOperacional.toFixed(2), className: 'orange' }],
+            series: [{ value: data.valorFaturamento.toFixed(2), className: 'good' }, { value: processedData.custoOperacional.toFixed(2), className: 'bad' }],
         },
         options: {
             seriesBarDistance: 5,
@@ -88,7 +88,7 @@ export function renderGraphics(data) {
     const custosGraphic = {
         data: {
             labels: ['Custo fixo', 'Custo variável'],
-            series: [{ value: data.custoFixo.toFixed(2), className: 'green' }, { value: data.custoVariavel.toFixed(2), className: 'waterGreen' }],
+            series: [{ value: data.custoFixo.toFixed(2), className: 'good' }, { value: data.custoVariavel.toFixed(2), className: 'goodALittleBetter' }],
         },
         options: {
             seriesBarDistance: 5,
@@ -136,7 +136,7 @@ export function renderGraphics(data) {
     // Analise operacioanl graphic
     const analiseOperacioanlGraphic = {
         data: {
-            series: [{ value: 43.6, className: 'green' }, { value: 43.6, className: 'waterGreen' }, { value: 54.5, className: 'yellow' }, { value: 76.3, className: 'orange' }]
+            series: [{ value: 43.6, className: 'good' }, { value: 43.6, className: 'warn' }, { value: 54.5, className: 'bad' }, { value: 76.3, className: 'verybad' }]
         },
         options: {
             donut: true,
@@ -167,7 +167,7 @@ export function renderGraphics(data) {
     // Business health graphic
     const saudeNegocioGraphic = {
         data: {
-            series: [{ value: 54.5, className: 'orange' }, { value: 54.5, className: 'yellow' }, { value: 54.5, className: 'waterGreen' }, { value: 54.5, className: 'green' }]
+            series: [{ value: 54.5, className: 'verybad' }, { value: 54.5, className: 'bad' }, { value: 54.5, className: 'warn' }, { value: 54.5, className: 'good' }]
         },
         options: {
             donut: true,

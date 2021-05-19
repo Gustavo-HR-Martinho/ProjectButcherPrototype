@@ -5,5 +5,5 @@ function toggleMenu() {
     blackOverlay.classList.toggle('active');
 }
 
-document.getElementsByClassName("toggle").addEventListener("click", toggleMenu);
+document.getElementById("toggle").addEventListener("click", toggleMenu);
 

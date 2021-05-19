@@ -1,19 +1,50 @@
-.green {
-    stroke: #3db1fe;
-    fill: #3db1fe;
+.good {
+    stroke: #4dd091;
+    fill: #4dd091;
 }
 
-.waterGreen { 
-    stroke: #fdd128;
-    fill: #fdd128;
+.goodALittleBetter {
+    stroke: #47c086;
+    fill: #47c086;
 }
 
-.yellow {
-    stroke: #fe336a;
-    fill: #fe336a;
+.warn { 
+    stroke: #ffec59;
+    fill: #ffec59;
 }
 
-.orange {
-    stroke: #414c8c;
-    fill: #414c8c;
+.verybad {
+    stroke: #ff5c77;
+    fill: #ff5c77;
 }
+
+.bad {
+    stroke: #ffa23a;
+    fill: #ffa23a;
+}
+
+
+/* .good {
+    stroke: #4dd091;
+    fill: #4dd091;
+}
+
+.goodALittleBetter {
+    stroke: #47c086;
+    fill: #47c086;
+}
+
+.warn { 
+    stroke: #ffec59;
+    fill: #ffec59;
+}
+
+.bad {
+    stroke: #ff5c77;
+    fill: #ff5c77;
+}
+
+.verybad {
+    stroke: #74737a;
+    fill: #74737a;
+} */
