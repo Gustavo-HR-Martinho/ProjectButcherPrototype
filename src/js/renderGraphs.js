@@ -38,8 +38,8 @@ export function renderGraphics(data) {
     // Faturamento x custos graphic
     const faturamentoXcustosGraphic = {
         data: {
-            labels: ['Faturamento', 'Custos'],
-            series: [{ value: data.valorFaturamento.toFixed(2), className: 'good' }, { value: processedData.custoOperacional.toFixed(2), className: 'bad' }],
+            labels: ['Faturamento', 'Despesas'],
+            series: [{ value: data.valorFaturamento.toFixed(2), className: 'good' }, { value: (processedData.custoOperacional + data.valorCompra).toFixed(2), className: 'bad' }],
         },
         options: {
             seriesBarDistance: 5,

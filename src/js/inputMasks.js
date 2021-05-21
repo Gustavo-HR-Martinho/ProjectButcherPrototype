@@ -16,3 +16,29 @@ VMasker(document.querySelectorAll("input[type='text']")).maskMoney({
 const revertMask = (value) => {
     return Number(value.substring(3).replace(/\./, '').replace(/\,/, '.'));
 }
+
+function setCaretPosition() {
+    // Modern browsers
+    if (this.setSelectionRange) {
+      this.focus();
+      this.setSelectionRange(this.value.length, this.value.length);
+    
+    // IE8 and below
+    } else if (this.createTextRange) {
+      var range = this.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', this.value.length);
+      range.moveStart('character', this.value.length);
+      range.select();
+    }
+    console.log(this.value)
+}
+
+document.getElementById("faturamento").addEventListener("focus", setCaretPosition.bind(document.getElementById("faturamento")));
+document.getElementById("faturamento").addEventListener("click", setCaretPosition.bind(document.getElementById("faturamento")));
+document.getElementById("compras").addEventListener("focus", setCaretPosition.bind(document.getElementById("compras")));
+document.getElementById("compras").addEventListener("click", setCaretPosition.bind(document.getElementById("compras")));
+document.getElementById("custoFixo").addEventListener("focus", setCaretPosition.bind(document.getElementById("custoFixo")));
+document.getElementById("custoFixo").addEventListener("click", setCaretPosition.bind(document.getElementById("custoFixo")));
+document.getElementById("custoVariavel").addEventListener("focus", setCaretPosition.bind(document.getElementById("custoVariavel")));
+document.getElementById("custoVariavel").addEventListener("click", setCaretPosition.bind(document.getElementById("custoVariavel")));
