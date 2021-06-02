@@ -14,7 +14,7 @@ VMasker(document.querySelectorAll("input[type='text']")).maskMoney({
 });
 
 const revertMask = (value) => {
-    return Number(value.substring(3).replace(/\./, '').replace(/\,/, '.'));
+    return parseFloat(value.substring(3).replace(/\./g, '').replace(/\,/g, '.'));
 }
 
 function setCaretPosition() {
@@ -31,7 +31,6 @@ function setCaretPosition() {
       range.moveStart('character', this.value.length);
       range.select();
     }
-    console.log(this.value)
 }
 
 document.getElementById("faturamento").addEventListener("focus", setCaretPosition.bind(document.getElementById("faturamento")));
